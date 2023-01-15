@@ -1,0 +1,36 @@
+.headerPanel{
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    background-color: rgb(3, 38, 116);
+    height: fit-content;
+    padding: 1rem;
+    font-size: 1.5rem;
+}
+nav{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+nav>p{
+    /* margin: auto; */
+    padding: 1vw;
+    padding-left:2vw;
+    font-size: 2rem;
+    font-weight: 500;
+    text-align: left;
+}
+.scoreSec{
+    margin: auto;
+    display: flex;
+}
+.scoreSec>p{
+    padding-left: 2vw;
+}
+#cur{
+    color: greenyellow;
+}
+#high{
+    color:crimson;
+    font-weight: 500;
+}

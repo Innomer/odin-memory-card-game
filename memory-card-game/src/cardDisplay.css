@@ -1,0 +1,60 @@
+.cardDisplay{
+    display: grid;
+    padding: 5vh;
+    width: 100%;
+    justify-content: center;
+    grid-template-columns: repeat(5,1fr);
+    grid-template-rows: 1fr;
+}
+
+.card{
+    margin: 2vw;
+    padding: 1rem;
+}
+
+.card>button{
+    padding: 1rem;
+    width: auto;
+    height:fit-content;
+    font-size: 20px;
+    background-color: rgba(0,0,0,0.5);
+    border: 1px solid gold;
+    color: whitesmoke;
+}
+.card>button:hover{
+    background-color: rgba(0,0,0,0.75);
+}
+.card>button:active{
+    background-color: rgba(0,0,0,0.5);
+    transform: translateY(4px);
+}
+.card img{
+    height: 20vh;
+}
+
+.gameOver{
+    background-color: rgba(0,0,0,0.5);
+    height: 100%;
+    text-align: center;
+    align-items: center;    
+    display: flex;
+    flex-direction: column;
+}
+.gameOver>p{
+    margin-top: 10vh;
+    font-size: 50px;
+}
+.gameOver>button{
+    font-size: 30px;
+    padding: 1vw;
+    background-color: rgb(3, 38, 116);
+    border: 1px solid gold;
+    color: whitesmoke;
+}
+.gameOver>button:hover{
+    background-color: rgb(2, 30, 90);
+}
+.gameOver>button:active{
+    border: 1px solid greenyellow;
+    transform: translateY(4px);
+}

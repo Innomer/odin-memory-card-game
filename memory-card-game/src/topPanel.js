@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './topPanel.css';
 function HeaderPanel({currentScore,highScore,setCur,setHigh,resetCur}){
 
     if(currentScore>highScore){
@@ -10,8 +10,10 @@ function HeaderPanel({currentScore,highScore,setCur,setHigh,resetCur}){
         <div className='headerPanel'>
             <nav>
                 <p>Memory Game</p>
-                <p>Current Score:- {currentScore}</p>
-                <p>High Score:- {highScore}</p>
+                <div className='scoreSec'>
+                <p id="cur">Current Score:- {currentScore}</p>
+                <p id="high">High Score:- {highScore}</p>
+                </div>
             </nav>
         </div>
     )

@@ -1,10 +1,19 @@
 import React, { useEffect, useState } from "react";
+import './cardDisplay.css';
+import blush from './images/blush.png';
+import scared from './images/scared.png';
+import angry from './images/angry.png';
+import cry from './images/cry.png';
+import laugh from './images/laugh.png';
 
 function CardDisplay({ setCur, resetCur }) {
     const [reshuffle, setReshuffle] = useState(false);
+    const [gameOver,setGameOver]=useState(false);
 
 
-    let labelArray = ["Hi", "hello", "mello", "nello", "cat"];
+    let labelArray = ["Blushing", "Scared", "Angry", "Crying", "Laughing"];
+    let picArray = [blush, scared, angry, cry, laugh];
+    let i = -1;
     let idArray = [];
     let maxIndex = 6;
     while (idArray.length !== maxIndex - 1) {
@@ -16,46 +25,68 @@ function CardDisplay({ setCur, resetCur }) {
     useEffect(() => {
         if (reshuffle === true) {
             let maxIndex = 6;
+            idArray=[];
+            console.log(idArray);
             while (idArray.length !== maxIndex - 1) {
                 let randomIndex = Math.floor(Math.random() * (maxIndex - 1));
                 if (idArray.includes(randomIndex) === false) {
                     idArray.push(randomIndex);
                 }
             }
+            setCur();
             setReshuffle(false);
         }
     }, [reshuffle]);
 
+    useEffect(()=>{
+        if(gameOver===true){
+            resetCur();
+        }
+    },[gameOver])
+
     return (
-        <div className="cardDisplay">
+        <div style={{width:"100%",height:"100%"}}>
+            <div className="gameOver" style={gameOver?{}:{display:"none"}}>
+                <p>Game Over</p>
+                <button onClick={()=>{setGameOver(false)}}>Play Again</button>
+            </div>
+            <div className="cardDisplay" style={gameOver?{display:"none"}:{display:"grid"}}>
             {idArray.map((val) => {
-                return <Card idNo={val} lab={labelArray[val]} res={setReshuffle} />
+                i++;
+                return <Card idNo={idArray[i]} im={picArray[i]} lab={labelArray[i]} res={setReshuffle}  gO={()=>setGameOver(true)}/>
             })}
+            </div>
         </div>
     );
 }
 
 
-function Card({ idNo, im, lab, res }) {
+function Card({ idNo, im, lab, res, gO }) {
 
     const [chosen, setChosen] = useState(false);
-    let count=1;
-
+    const [count,setCount]=useState(0);
     useEffect(() => {
-        if (chosen === true && count<2) {
+        console.log(chosen,count,lab);
+        if (chosen === true && count<1) {
             res(true);
+            setCount(count+1);
         }
-        if(count>1)
-        {
-            console.log("Game Over");
-        }
-    }, [chosen, res,count])
+    })
 
     return (
-        <div className="card">
-            <button onClick={() => setChosen(true)}>
-                <img src={im} alt={idNo} />
-                <p>{idNo}-{lab}</p>
+        <div className="card" style={{gridColumnStart:idNo+1, gridRowStart:1}}>
+            <button onClick={() => {
+                if (chosen === false ){
+                    setChosen(true);
+                }
+                else {
+                    setCount(0);
+                    setChosen(false);
+                    gO();
+                }
+            }} draggable="false">
+                <img src={im} alt={idNo} draggable="false" />
+                <p>{lab}</p>
             </button>
         </div>
     );
