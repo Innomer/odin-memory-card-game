@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/odin-memory-card-game/static/css/main.f2803d51.css",
+    "main.js": "/odin-memory-card-game/static/js/main.c065d3dd.js",
+    "static/media/laugh.png": "/odin-memory-card-game/static/media/laugh.474fbe9b18a8814f74b3.png",
+    "static/media/angry.png": "/odin-memory-card-game/static/media/angry.2bd5df3d31c63d1e5aca.png",
+    "static/media/blush.png": "/odin-memory-card-game/static/media/blush.277f3d75c25fb2dc2005.png",
+    "static/media/cry.png": "/odin-memory-card-game/static/media/cry.289e0329a182c9d09c37.png",
+    "static/media/scared.png": "/odin-memory-card-game/static/media/scared.8f9c46c0da9855bdcabf.png",
+    "index.html": "/odin-memory-card-game/index.html",
+    "main.f2803d51.css.map": "/odin-memory-card-game/static/css/main.f2803d51.css.map",
+    "main.c065d3dd.js.map": "/odin-memory-card-game/static/js/main.c065d3dd.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f2803d51.css",
+    "static/js/main.c065d3dd.js"
+  ]
+}
